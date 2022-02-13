@@ -65,7 +65,12 @@ router.post('/', (req, res) => {
 
 // PUT /api/posts/upvote
 router.put('/upvote', (req, res) => {
-
+    Vote.create({
+        user_id: req.body.user_id,
+        post_id: req.body.post_id
+      })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => res.json(err));
 });
 
 // updates post
