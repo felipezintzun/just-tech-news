@@ -48,4 +48,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// the issue is that you don't have a logout reoute 
+//  do you have one ?
+
 module.exports = router;

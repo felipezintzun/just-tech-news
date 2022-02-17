@@ -105,12 +105,19 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
+
+console.log(req.session); 
+// res.send('hello')
+  // the issue is here 
   if (req.session.loggedIn) {
     req.session.destroy(() => {
+      
+      console.log('logout route is being hit '); 
       res.status(204).end();
     });
   }
   else {
+    console.log("was not logged in to begin with ")
     res.status(404).end();
   }
 });
